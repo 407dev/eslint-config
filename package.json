@@ -1,0 +1,38 @@
+{
+  "name": "@407dev/eslint-config",
+  "version": "1.0.0",
+  "description": "eslint config used by 407dev",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:407dev/eslint-config.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "eslint",
+    "407dev"
+  ],
+  "author": "David DeCorso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/407dev/eslint-config/issues"
+  },
+  "homepage": "https://github.com/407dev/eslint-config#readme",
+  "peerDependencies": {
+    "eslint": ">= 8"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint-config-next": "^14.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "eslint-plugin-unicorn": "^49.0.0"
+  },
+  "devDependencies": {
+    "@407dev/prettier-config": "^1.0.0"
+  }
+}
