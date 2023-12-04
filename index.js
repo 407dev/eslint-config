@@ -3,7 +3,7 @@ const config = {
   extends: ['eslint:recommended', 'plugin:unicorn/recommended', 'prettier'],
   overrides: [
     {
-      files: ['app/**/*.{ts,tsx}'],
+      files: ['*.ts', '*.tsx', '*.d.ts'],
       plugins: ['eslint-plugin-tsdoc'],
       extends: [
         'plugin:@typescript-eslint/recommended',
