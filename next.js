@@ -1,6 +1,6 @@
 /** @type {import("eslint").Linter.Config} */
 const next = {
-  extends: ['next', 'next/core-web-vitals', '@407dev/eslint-config'],
+  extends: ['next/core-web-vitals', '@407dev/eslint-config'],
   rules: {
     'react/function-component-definition': [
       2,
