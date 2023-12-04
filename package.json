@@ -11,6 +11,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "index.js",
+    "next.js",
+    "expo.js"
+  ],
   "keywords": [
     "eslint",
     "407dev"
