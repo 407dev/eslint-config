@@ -50,7 +50,7 @@ const config = {
             selector: 'variable',
             types: ['boolean'],
             format: ['camelCase', 'PascalCase'],
-            prefix: ['are', 'is', 'should', 'has', 'can', 'did', 'will']
+            prefix: ['are', 'is', 'should', 'has', 'can', 'did', 'will', 'show']
           }
         ],
         '@typescript-eslint/no-confusing-void-expression': 2,
