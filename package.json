@@ -6,7 +6,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/407dev/eslint-config.git"
+    "url": "https://github.com/407dev/eslint-config.git"
   },
   "publishConfig": {
     "access": "public"
