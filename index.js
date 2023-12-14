@@ -66,7 +66,6 @@ const config = {
         '@typescript-eslint/non-nullable-type-assertion-style': 0,
         '@typescript-eslint/prefer-enum-initializers': 2,
         '@typescript-eslint/sort-type-constituents': 2,
-        '@typescript-eslint/sort-type-union-intersection-members': 2,
         '@typescript-eslint/switch-exhaustiveness-check': 2,
         '@typescript-eslint/type-annotation-spacing': 2,
         'tsdoc/syntax': 2,
