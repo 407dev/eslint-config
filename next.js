@@ -75,12 +75,6 @@ const next = {
         '@typescript-eslint/type-annotation-spacing': 2,
         'tsdoc/syntax': 2,
         'unicorn/no-null': 0,
-        'unicorn/prevent-abbreviations': [
-          'error',
-          {
-            ignore: ['args', '.*Prop', 'ui.*', 'ref', 'params', 'prop']
-          }
-        ]
       }
     }
   ],
