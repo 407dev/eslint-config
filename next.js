@@ -72,7 +72,6 @@ const next = {
         '@typescript-eslint/prefer-enum-initializers': 2,
         '@typescript-eslint/sort-type-constituents': 2,
         '@typescript-eslint/switch-exhaustiveness-check': 2,
-        '@typescript-eslint/type-annotation-spacing': 2,
         'tsdoc/syntax': 2,
         'unicorn/no-null': 0,
       }
@@ -121,7 +120,7 @@ const next = {
     'no-new-func': 2,
     'no-object-constructor': 2,
     'no-new-wrappers': 2,
-    'no-octal-escape': 2,
+      'no-object-constructor': 2,
     'no-promise-executor-return': 2,
     'no-proto': 2,
     'no-script-url': 2,

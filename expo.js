@@ -72,7 +72,6 @@ const expo = {
         '@typescript-eslint/prefer-enum-initializers': 2,
         '@typescript-eslint/sort-type-constituents': 2,
         '@typescript-eslint/switch-exhaustiveness-check': 2,
-        '@typescript-eslint/type-annotation-spacing': 2,
         'tsdoc/syntax': 2,
         'unicorn/no-null': 0,
         'unicorn/prevent-abbreviations': [
