@@ -32,12 +32,18 @@ module.exports = [
         },
     },
 
+    // --- Import Plugin Configuration ---
+    {
+        plugins: {
+            import: importPlugin,
+        },
+    },
+
     // --- TypeScript Overrides & Rules ---
     {
         files: ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
         plugins: {
             tsdoc: tsdoc,
-            import: importPlugin,
         },
         rules: {
             // TypeScript specific rules
