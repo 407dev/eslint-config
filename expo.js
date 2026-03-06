@@ -3,6 +3,7 @@ const js = require("@eslint/js");
 const unicorn = require("eslint-plugin-unicorn");
 const tseslint = require("typescript-eslint");
 const tsdoc = require("eslint-plugin-tsdoc");
+const importPlugin = require("eslint-plugin-import");
 
 const compat = new FlatCompat({
     baseDirectory: __dirname,
@@ -28,6 +29,13 @@ module.exports = [
                 project: "./tsconfig.json",
                 tsconfigRootDir: ".", 
             },
+        },
+    },
+
+    // --- Import Plugin Configuration ---
+    {
+        plugins: {
+            import: importPlugin,
         },
     },
 
@@ -128,7 +136,8 @@ module.exports = [
             "no-console": 1,
             "no-constant-binary-expression": 2,
             "no-constructor-return": 2,
-            "no-duplicate-imports": 2,
+            "no-duplicate-imports": 0,
+            "import/no-duplicates": [2, { "prefer-inline": true }],
             "no-eval": 2,
             "no-extend-native": 2,
             "no-extra-bind": 2,
