@@ -17,9 +17,7 @@ const legacyConfigs = compat.extends("prettier");
 module.exports = [
     // --- Base Configs ---
     js.configs.recommended,
-    {
-        ...unicorn.configs["flat/recommended"],
-    },
+    unicorn.configs["flat/recommended"],
     ...legacyConfigs,
 
     // --- TypeScript Configuration ---

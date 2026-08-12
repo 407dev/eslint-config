@@ -11,9 +11,7 @@ const prettierConfig = require("eslint-config-prettier/flat");
 module.exports = [
     // --- Base Configs ---
     js.configs.recommended,
-    {
-        ...unicorn.configs["flat/recommended"],
-    },
+    unicorn.configs["flat/recommended"],
     nextPlugin.configs["core-web-vitals"],
     prettierConfig,
 
