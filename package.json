@@ -3,7 +3,9 @@
   "version": "2.0.1",
   "description": "eslint config used by 407dev",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "node --test"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/407dev/eslint-config.git"
@@ -27,19 +29,22 @@
   },
   "homepage": "https://github.com/407dev/eslint-config#readme",
   "peerDependencies": {
-    "eslint": ">= 8.57.0"
+    "eslint": "^9.0.0"
   },
   "dependencies": {
+    "@eslint/eslintrc": "^3.3.6",
+    "@eslint/js": "^9.39.5",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint-config-next": "^16.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-tsdoc": "^0.3.0",
-    "eslint-plugin-unicorn": "^55.0.0"
+    "eslint-plugin-unicorn": "^55.0.0",
+    "typescript-eslint": "^8.67.0"
   },
   "devDependencies": {
-    "eslint": "^9.0.0",
+    "eslint": "^9.39.5",
     "eslint-config-universe": "^15.0.3",
     "prettier": "^3.0.0"
   }

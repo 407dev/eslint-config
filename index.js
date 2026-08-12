@@ -17,7 +17,15 @@ const legacyConfigs = compat.extends("prettier");
 module.exports = [
     // --- Base Configs ---
     js.configs.recommended,
-    unicorn.configs["flat/recommended"],
+    {
+        ...unicorn.configs["flat/recommended"],
+        rules: {
+            ...unicorn.configs["flat/recommended"].rules,
+            // eslint-plugin-unicorn 55 reads an ESLint internal property that
+            // was removed in ESLint 9. Keep the remaining recommended rules.
+            "unicorn/expiring-todo-comments": "off",
+        },
+    },
     ...legacyConfigs,
 
     // --- TypeScript Configuration ---
@@ -29,13 +37,6 @@ module.exports = [
                 project: "./tsconfig.json",
                 tsconfigRootDir: ".", 
             },
-        },
-    },
-
-    // --- Import Plugin Configuration ---
-    {
-        plugins: {
-            import: importPlugin,
         },
     },
 
@@ -105,6 +106,9 @@ module.exports = [
     },
     {
         // Global Rules
+        plugins: {
+            import: importPlugin,
+        },
         rules: {
             "accessor-pairs": 2,
             "array-callback-return": 2,
