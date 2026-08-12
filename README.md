@@ -2,26 +2,23 @@
 
 ## Configurations
 
+Requires ESLint 10.4 or later. These are flat configs, so load one from an
+`eslint.config.cjs` file.
+
 ### JavaScript/TypeScript
 
-```json
-{
-  "extends": ["@407dev/eslint-config"]
-}
+```js
+module.exports = require("@407dev/eslint-config");
 ```
 
 ### next.js
 
-```json
-{
-  "extends": ["@407dev/eslint-config/next"]
-}
+```js
+module.exports = require("@407dev/eslint-config/next");
 ```
 
 ### expo
 
-```json
-{
-  "extends": ["@407dev/eslint-config/expo"]
-}
+```js
+module.exports = require("@407dev/eslint-config/expo");
 ```

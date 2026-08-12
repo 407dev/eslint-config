@@ -3,7 +3,9 @@
   "version": "2.0.1",
   "description": "eslint config used by 407dev",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "node --test test/configs.test.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/407dev/eslint-config.git"
@@ -27,20 +29,26 @@
   },
   "homepage": "https://github.com/407dev/eslint-config#readme",
   "peerDependencies": {
-    "eslint": ">= 8.57.0"
+    "eslint": ">= 10.4.0",
+    "typescript": ">=4.8.4 <6.1.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
-    "eslint-config-next": "^16.1.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-tsdoc": "^0.3.0",
-    "eslint-plugin-unicorn": "^55.0.0"
+    "@eslint/js": "^10.0.1",
+    "@next/eslint-plugin-next": "^16.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import-x": "^4.17.1",
+    "eslint-plugin-tsdoc": "^0.5.2",
+    "eslint-plugin-unicorn": "^73.0.0",
+    "typescript-eslint": "^8.67.0"
   },
   "devDependencies": {
-    "eslint": "^9.0.0",
-    "eslint-config-universe": "^15.0.3",
-    "prettier": "^3.0.0"
+    "eslint": "^10.8.1",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3"
   }
 }

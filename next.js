@@ -1,24 +1,17 @@
-const { FlatCompat } = require("@eslint/eslintrc");
 const js = require("@eslint/js");
-const unicorn = require("eslint-plugin-unicorn");
+const unicorn = require("eslint-plugin-unicorn").default;
 const tseslint = require("typescript-eslint");
 const tsdoc = require("eslint-plugin-tsdoc");
-const importPlugin = require("eslint-plugin-import");
-
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-});
-
-// 1. Load Legacy Configs (Next.js & Prettier)
-const legacyConfigs = compat.extends("next/core-web-vitals", "prettier");
+const importPlugin = require("eslint-plugin-import-x");
+const next = require("@next/eslint-plugin-next");
+const prettierConfig = require("eslint-config-prettier/flat");
 
 // 2. Define Custom Rules
 module.exports = [
     // --- Base Configs ---
     js.configs.recommended,
     unicorn.configs["flat/recommended"],
-    ...legacyConfigs,
+    prettierConfig,
 
     // --- TypeScript Configuration ---
     ...tseslint.configs.recommended,
@@ -26,17 +19,13 @@ module.exports = [
     {
         languageOptions: {
             parserOptions: {
-                project: "./tsconfig.json",
-                tsconfigRootDir: ".", 
+                projectService: true,
             },
         },
     },
-
-    // --- Import Plugin Configuration ---
     {
-        plugins: {
-            import: importPlugin,
-        },
+        files: ["**/*.{js,jsx,mjs,cjs}"],
+        ...tseslint.configs.disableTypeChecked,
     },
 
     // --- TypeScript Overrides & Rules ---
@@ -105,6 +94,10 @@ module.exports = [
     },
     {
         // Global Rules
+        plugins: {
+            "import-x": importPlugin,
+            "@next/next": next,
+        },
         rules: {
             "accessor-pairs": 2,
             "array-callback-return": 2,
@@ -129,7 +122,8 @@ module.exports = [
             "no-constant-binary-expression": 2,
             "no-constructor-return": 2,
             "no-duplicate-imports": 0,
-            "import/no-duplicates": [2, { "prefer-inline": true }],
+            "import-x/no-duplicates": [2, { "prefer-inline": true }],
+            ...next.configs["core-web-vitals"].rules,
             "no-eval": 2,
             "no-extend-native": 2,
             "no-extra-bind": 2,
@@ -195,34 +189,6 @@ module.exports = [
             "unicorn/prefer-ternary": [2, "only-single-line"],
             "unicorn/prevent-abbreviations": 0,
             "yoda": [2, "never"],
-            "react/function-component-definition": [
-                2,
-                {
-                    namedComponents: "arrow-function"
-                }
-            ],
-            "react/hook-use-state": 2,
-            "react/no-array-index-key": 2,
-            "react/no-unstable-nested-components": 2,
-            "react/self-closing-comp": 2,
-            "react/jsx-boolean-value": [2, "never"],
-            "react/jsx-fragments": 2,
-            "react/jsx-handler-names": [
-                2,
-                {
-                    eventHandlerPrefix: "on"
-                }
-            ],
-            "react/jsx-no-useless-fragment": 2,
-            "react/jsx-pascal-case": 2,
-            "react/jsx-sort-props": [
-                2,
-                {
-                    ignoreCase: true,
-                    multiline: "last"
-                }
-            ],
-            "react/jsx-wrap-multilines": 2
         }
     }
 ];
