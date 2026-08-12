@@ -1,24 +1,27 @@
-const { FlatCompat } = require("@eslint/eslintrc");
 const js = require("@eslint/js");
+const nextPlugin = require("@next/eslint-plugin-next");
 const unicorn = require("eslint-plugin-unicorn");
 const tseslint = require("typescript-eslint");
 const tsdoc = require("eslint-plugin-tsdoc");
 const importPlugin = require("eslint-plugin-import");
 
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-});
-
-// 1. Load Legacy Configs (Next.js & Prettier)
-const legacyConfigs = compat.extends("next/core-web-vitals", "prettier");
+const prettierConfig = require("eslint-config-prettier/flat");
 
 // 2. Define Custom Rules
 module.exports = [
     // --- Base Configs ---
     js.configs.recommended,
-    unicorn.configs["flat/recommended"],
-    ...legacyConfigs,
+    {
+        ...unicorn.configs["flat/recommended"],
+        rules: {
+            ...unicorn.configs["flat/recommended"].rules,
+            // eslint-plugin-unicorn 55 reads an ESLint internal property that
+            // was removed in ESLint 9. Keep the remaining recommended rules.
+            "unicorn/expiring-todo-comments": "off",
+        },
+    },
+    nextPlugin.configs["core-web-vitals"],
+    prettierConfig,
 
     // --- TypeScript Configuration ---
     ...tseslint.configs.recommended,

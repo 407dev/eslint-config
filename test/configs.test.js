@@ -2,17 +2,24 @@ const assert = require("node:assert/strict");
 const test = require("node:test");
 const { ESLint } = require("eslint");
 
-const config = require("..");
+const entryPoints = [
+    ["base", "..", [0, 1, 2, -1]],
+    ["next", "../next", [0, 1, 2, 3]],
+    ["expo", "../expo", [0, 1, 2]],
+];
 
-test("base config loads with ESLint 9", async () => {
-    const eslint = new ESLint({
-        overrideConfigFile: true,
-        overrideConfig: [config[0], config[1], config[2], config.at(-1)],
+for (const [name, entryPoint, indexes] of entryPoints) {
+    test(`${name} config loads with ESLint 9`, async () => {
+        const config = require(entryPoint);
+        const eslint = new ESLint({
+            overrideConfigFile: true,
+            overrideConfig: indexes.map(index => config.at(index)),
+        });
+
+        const [result] = await eslint.lintText("const value = 1;\n", {
+            filePath: "example.js",
+        });
+
+        assert.equal(result.fatalErrorCount, 0);
     });
-
-    const [result] = await eslint.lintText("const value = 1;\n", {
-        filePath: "example.js",
-    });
-
-    assert.equal(result.fatalErrorCount, 0);
-});
+}
