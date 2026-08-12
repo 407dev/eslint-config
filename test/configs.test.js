@@ -22,4 +22,16 @@ for (const [name, entryPoint, indexes] of entryPoints) {
 
         assert.equal(result.fatalErrorCount, 0);
     });
+
+    test(`${name} config enables the ESLint-9-compatible expiring TODO rule`, async () => {
+        const config = require(entryPoint);
+        const eslint = new ESLint({
+            overrideConfigFile: true,
+            overrideConfig: indexes.map(index => config.at(index)),
+        });
+
+        const calculatedConfig = await eslint.calculateConfigForFile("example.js");
+
+        assert.equal(calculatedConfig.rules["unicorn/expiring-todo-comments"].at(0), 2);
+    });
 }

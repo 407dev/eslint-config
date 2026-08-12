@@ -19,12 +19,6 @@ module.exports = [
     js.configs.recommended,
     {
         ...unicorn.configs["flat/recommended"],
-        rules: {
-            ...unicorn.configs["flat/recommended"].rules,
-            // eslint-plugin-unicorn 55 reads an ESLint internal property that
-            // was removed in ESLint 9. Keep the remaining recommended rules.
-            "unicorn/expiring-todo-comments": "off",
-        },
     },
     ...legacyConfigs,
 
