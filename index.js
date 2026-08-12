@@ -32,13 +32,6 @@ module.exports = [
         },
     },
 
-    // --- Import Plugin Configuration ---
-    {
-        plugins: {
-            import: importPlugin,
-        },
-    },
-
     // --- TypeScript Overrides & Rules ---
     {
         files: ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
@@ -105,6 +98,9 @@ module.exports = [
     },
     {
         // Global Rules
+        plugins: {
+            import: importPlugin,
+        },
         rules: {
             "accessor-pairs": 2,
             "array-callback-return": 2,
