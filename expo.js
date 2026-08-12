@@ -198,6 +198,7 @@ module.exports = [
                 }
             ],
             "symbol-description": 2,
+            "semi": [2, "always"],
             "unicorn/no-negated-condition": 0,
             "unicorn/no-null": 0,
             "unicorn/prefer-ternary": [2, "only-single-line"],
